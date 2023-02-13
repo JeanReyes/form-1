@@ -19,14 +19,14 @@ export const FalseDelivery = () => {
     
 
     return (
-        <div className='container-view'>
+        <div>
+            <button onClick={() => handleChangeStep('init')}>init</button>
+            <button onClick={() => handleChangeStep('medium')}>medium</button>
+            <button onClick={() => handleChangeStep('finish')}>finish</button>
             { step === 'init' && <InitFalseDelivery/> }
             { step === 'medium' && <MediumFalseDelivery/> }
             { step === 'finish' && <FinishFalseDelivery/> }
 
-            <button onClick={() => handleChangeStep('init')}>init</button>
-            <button onClick={() => handleChangeStep('medium')}>medium</button>
-            <button onClick={() => handleChangeStep('finish')}>finish</button>
         </div>
     )
 }

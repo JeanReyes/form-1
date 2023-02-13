@@ -3,7 +3,13 @@ import css from "styled-jsx/css"
 const initStyle = css`
     .container-view {
         background: red;
-        transition: 'all .3s';
+        animation: fadeIn 0.5s;
+    }
+
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
     }
 `
 
