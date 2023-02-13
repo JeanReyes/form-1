@@ -2,12 +2,14 @@ import { useReducer } from 'react';
 import { DataFalseDelivery } from '@/interfaces';
 import { FalseDeliveryContext, falseDeliveryReducer } from './';
 
+export type TypeStep = 'init' | 'medium' | 'finish';
+
 export interface FalseDeliveryState {
-   step: string;
+   step: TypeStep
 }
 
 const FALSE_DELIVERY_INITIAL_STATE: FalseDeliveryState = {
-   step: ''
+   step: 'init'
 }
 
 interface ProviderProps {
@@ -19,7 +21,7 @@ export const FalseDeliveryProvider = ({ children, dataApi }: ProviderProps) => {
 
    const [ state, dispatch ] = useReducer( falseDeliveryReducer, FALSE_DELIVERY_INITIAL_STATE );
 
-   const changeStep = (value: string) => {
+   const changeStep = (value: TypeStep) => {
       dispatch({ type: 'upd-step', payload: value })
    }
 

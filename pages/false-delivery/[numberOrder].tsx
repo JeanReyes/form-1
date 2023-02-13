@@ -48,6 +48,28 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
                     "brand": "samsung",
                     "quantity": 3,
                     "enabled": true            
+                },
+                {
+                    "image": "http://asdasdasd.com",
+                    "name": "MAC",
+                    "formatedPrice": "$300.000",
+                    "brand": "samsung",
+                    "quantity": 3,
+                    "enabled": true            
+                }
+            ]
+        },
+        {
+            "subOrder": "wena",
+            "sellerName": "Falabella",
+            "products": [
+                {
+                    "image": "http://asdasdasd.com",
+                    "name": "lavadora",
+                    "formatedPrice": "$300.000",
+                    "brand": "samsung",
+                    "quantity": 3,
+                    "enabled": true            
                 }
             ]
         }

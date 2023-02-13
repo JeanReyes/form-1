@@ -1,7 +1,7 @@
 
-import { FalseDeliveryState } from './';
+import { FalseDeliveryState, TypeStep } from './';
 
-export type ActionStep = { type: 'upd-step', payload: string }
+export type ActionStep = { type: 'upd-step', payload: TypeStep }
 //| { type: 'upd-step', payload: string } ejemplo
 
 export const falseDeliveryReducer = (state: FalseDeliveryState, action: ActionStep): FalseDeliveryState => {

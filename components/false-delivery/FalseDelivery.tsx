@@ -1,26 +1,32 @@
-import { FalseDeliveryContext } from '@/context/false-delivery';
-import React, { useContext } from 'react';
+import { FalseDeliveryContext, TypeStep } from '@/context/false-delivery';
+import React, { useContext, useEffect } from 'react';
+import { FinishFalseDelivery, InitFalseDelivery, MediumFalseDelivery } from './';
 
 export const FalseDelivery = () => {
 
     const { step, dataApi, changeStep } = useContext(FalseDeliveryContext);
 
-    const handleChangeStep = (value: string) => {
+    const handleChangeStep = (value: TypeStep) => {
         changeStep(value);
     }
 
     // manejo de statos de step
+    useEffect(() => {
+        if(dataApi.length === 1) {
+            changeStep('medium');
+        }     
+    }, [])
+    
 
     return (
-        <>
-            {/* header mas phone */}
-            {/* tarjeta mas description */}
-            {/* button  */}
-            <div>ComponentFalseDelivery { step }</div>
-            <div>Data API { JSON.stringify(dataApi) }</div>
-            <button onClick={ () => handleChangeStep('init') }>init</button>
-            <button onClick={ () => handleChangeStep('medium') }>medium</button>
-            <button onClick={ () => handleChangeStep('finish') }>finish</button>
-        </>
+        <div className='container-view'>
+            { step === 'init' && <InitFalseDelivery/> }
+            { step === 'medium' && <MediumFalseDelivery/> }
+            { step === 'finish' && <FinishFalseDelivery/> }
+
+            <button onClick={() => handleChangeStep('init')}>init</button>
+            <button onClick={() => handleChangeStep('medium')}>medium</button>
+            <button onClick={() => handleChangeStep('finish')}>finish</button>
+        </div>
     )
 }
