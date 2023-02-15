@@ -26,6 +26,7 @@ export interface DataFalseDeliveryId {
 
 export interface ProductFalseDeliveryId {
     id:            string;
+    order:         string;
     image:         string;
     name:          string;
     formatedPrice: string;

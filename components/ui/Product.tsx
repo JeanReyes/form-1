@@ -8,10 +8,12 @@ interface Props {
 }
 
 export const Product = ({ product, header }: Props) => {
-
+    // console.log(product);
+    
+    // bloquear
     return (
         <div className='aling-div'>
-            <InputCheck header={ header } name={product.id} product={product}/>
+            <InputCheck value='product' disable={product.enabled ? false : true} header={ header } name={product.id} product={ product }/>
             { JSON.stringify(product) }
         </div>
     )

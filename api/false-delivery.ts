@@ -11,7 +11,7 @@ export const dataFake = [ // ejemplo respuesta api
                 "formatedPrice": "$300.000",
                 "brand": "samsung",
                 "quantity": 3,
-                "enabled": true            
+                "enabled": false            
             },
             {
                 "image": "http://asdasdasd.com",
@@ -55,7 +55,7 @@ export const dataFake = [ // ejemplo respuesta api
                 "formatedPrice": "$300.000",
                 "brand": "samsung",
                 "quantity": 3,
-                "enabled": true            
+                "enabled": false           
             },{
                 "image": "http://asdasdasd.com",
                 "name": "lavadora",
@@ -74,7 +74,11 @@ export const apiFake = () => {
         return  {
             id: `order-${indexOrder + 1}`,
             ...order,
-            products: order.products.map((product, indexProduct) => ({ id: `order-${indexOrder + 1}-product-${indexProduct + 1}`, ...product})),
+            products: order.products.map((product, indexProduct) => ({ 
+                id: `order-${indexOrder + 1}-product-${indexProduct + 1}`,
+                order: order.subOrder, 
+                ...product
+            })),
         }
     })
 }

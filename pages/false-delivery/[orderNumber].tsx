@@ -7,17 +7,21 @@ import { FalseDelivery } from '@/components/false-delivery';
 import { apiFake } from '@/api/false-delivery';
 
 interface Props {
+    orderNumber: string;
     typeForm: FormCase;
     dataContract: DataFalseDeliveryId[];
 }
 
-const FalseDeliveryHome = ({ typeForm, dataContract }: Props) => {
+const FalseDeliveryHome = ({ orderNumber, typeForm, dataContract }: Props) => {
     return (
         <FalseDeliveryProvider dataApi={ dataContract }>
             <Layout
                 title={ typeForm }
             >
-                <FalseDelivery/>
+                <>
+                    ORDER: {orderNumber}
+                    <FalseDelivery/>
+                </>
             </Layout>
         </FalseDeliveryProvider>
     )
@@ -34,13 +38,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const { numberOrder } = params as { numberOrder: string };
+    const { orderNumber } = params as { orderNumber: string };
 
     // llamado api y verificar los llamados a apis
     
 
     return {
         props: {
+            orderNumber,
             typeForm: { type: 'FCOM-false-delevery', value: 'Falsa Entrega' },
             dataContract: apiFake()
         },

@@ -15,7 +15,7 @@ export const ListProducts = ({ products, header }: Props) => {
         <>
             {
                 products.map((product, index) => (
-                    <Product header={header} key={index} product={product} />
+                    <Product header={ header } key={index} product={ product } />
                 ))
             }
             <br/><br/>

@@ -23,8 +23,8 @@ export const Order = ({ order }: Props) => {
 
     return (
         <div>
-            <div className="aling-div">
-                <InputCheck name={ id } header={ id } />
+            <div className="aling-div">  
+                { products.length > 1 && <InputCheck disable={ false } value='header' name={ id } header={ id } /> }
                 <HeaderOrder seller={ sellerName } subOrder={ subOrder }/>
             </div>
             <div>

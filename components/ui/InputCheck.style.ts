@@ -29,7 +29,7 @@ const check = css`
         transition: .3s;
     }
     input:checked + label:before {
-        content: '(*)';
+        content: ':)';
         outline: 1px solid #FF6200;
         display: flex;
         padding-top: 3px;

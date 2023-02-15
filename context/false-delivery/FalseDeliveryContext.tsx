@@ -5,10 +5,10 @@ import { TypeStep } from './FalseDeliveryProvider';
 interface ContextProps {
    step: string;
    allOrder: string[];
-   selectProducts: ProductFalseDeliveryId[];
    dataApi: DataFalseDeliveryId[];
+   selectProducts: ProductFalseDeliveryId[];
    changeStep: (value: TypeStep) => void;
-   onChangeRadioHeader: (name: string, checked: boolean, product?: ProductFalseDeliveryId) => void;
+   onChangeRadioHeader: (name: string, checked: boolean, header: string, product?: ProductFalseDeliveryId) => void;
 }
 
 export const FalseDeliveryContext = createContext({} as ContextProps);

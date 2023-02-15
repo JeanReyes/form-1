@@ -29,12 +29,11 @@ export const FalseDeliveryProvider = ({ children, dataApi }: ProviderProps) => {
       dispatch({ type: 'upd-step', payload: value })
    }
 
-   const onChangeRadioHeader = (id: string, checked: boolean, product?: ProductFalseDeliveryId) => {
+   const onChangeRadioHeader = (id: string, checked: boolean, header: string, product?: ProductFalseDeliveryId) => {
       // validar que es order o product
       let match = dataApi.find(order => order.id === id);
 
       if (product) {
-         console.log("es solo producto");   
          if(checked) { // add
             dispatch({
                type: 'add-product',
@@ -48,6 +47,7 @@ export const FalseDeliveryProvider = ({ children, dataApi }: ProviderProps) => {
                type: 'remove-product',
                payload: {
                   order: id,
+                  header: header,
                   product: product
                }
             })
@@ -70,15 +70,12 @@ export const FalseDeliveryProvider = ({ children, dataApi }: ProviderProps) => {
                }
             })
          }
-         console.log("todos los productos");
       }
-      
-
   }  
-
    return(
        <FalseDeliveryContext.Provider value={{
             ...state,
+            selectProducts: state.selectProducts,
             dataApi,
             changeStep,
             onChangeRadioHeader,

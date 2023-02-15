@@ -5,7 +5,7 @@ import { FinishFalseDelivery, InitFalseDelivery, MediumFalseDelivery } from './'
 
 export const FalseDelivery = () => {
 
-    const { step, selectProducts, allOrder, dataApi, changeStep } = useContext(FalseDeliveryContext);
+    const { step, dataApi, changeStep } = useContext(FalseDeliveryContext);
     
     const handleChangeStep = (value: TypeStep) => {
         changeStep(value);
@@ -24,11 +24,6 @@ export const FalseDelivery = () => {
             { step === 'init' && <InitFalseDelivery orders={ dataApi }/> }
             { step === 'medium' && <MediumFalseDelivery/> }
             { step === 'finish' && <FinishFalseDelivery/> }
-            {
-                selectProducts.map((prod)=> (
-                    <div key={prod.id}>{prod.id } / </div>
-                ))
-            }
         </div>
     )
 }
