@@ -3,9 +3,8 @@ import css from "styled-jsx/css"
 const initStyle = css`
     .container-view {
         background: red;
-        animation: fadeIn 0.5s;
+        animation: fadeIn .2s;
     }
-
 
     @keyframes fadeIn {
         0% { opacity: 0; }

@@ -1,3 +1,8 @@
 body {
     margin: 0;
 }
+
+.aling-div {
+    display: flex;
+    align-items: center;
+}

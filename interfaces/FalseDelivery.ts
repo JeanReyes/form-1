@@ -17,6 +17,23 @@ export interface ProductFalseDelivery {
     enabled:       boolean;
 }
 
+export interface DataFalseDeliveryId {
+    id:         string;
+    subOrder:   string;
+    sellerName: string;
+    products:   ProductFalseDeliveryId[];
+}
+
+export interface ProductFalseDeliveryId {
+    id:            string;
+    image:         string;
+    name:          string;
+    formatedPrice: string;
+    brand:         string;
+    quantity:      number;
+    enabled:       boolean;
+}
+
 export interface RequestFalseDelivey {
     order:       string;
     nameForm:    string;

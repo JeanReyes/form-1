@@ -1,19 +1,23 @@
 import { useReducer } from 'react';
-import { DataFalseDelivery } from '@/interfaces';
+import { DataFalseDeliveryId, ProductFalseDelivery, ProductFalseDeliveryId } from '@/interfaces';
 import { FalseDeliveryContext, falseDeliveryReducer } from './';
 
 export type TypeStep = 'init' | 'medium' | 'finish';
 
 export interface FalseDeliveryState {
-   step: TypeStep
+   step: TypeStep,
+   allOrder: string[];
+   selectProducts: ProductFalseDeliveryId []
 }
 
 const FALSE_DELIVERY_INITIAL_STATE: FalseDeliveryState = {
-   step: 'init'
+   step: 'init',
+   allOrder: [],
+   selectProducts: []
 }
 
 interface ProviderProps {
-   dataApi: DataFalseDelivery[] // colocar tipo por el momento es solo el numero de order
+   dataApi: DataFalseDeliveryId[] // colocar tipo por el momento es solo el numero de order
    children: JSX.Element
 }
 
@@ -25,11 +29,59 @@ export const FalseDeliveryProvider = ({ children, dataApi }: ProviderProps) => {
       dispatch({ type: 'upd-step', payload: value })
    }
 
+   const onChangeRadioHeader = (id: string, checked: boolean, product?: ProductFalseDeliveryId) => {
+      // validar que es order o product
+      let match = dataApi.find(order => order.id === id);
+
+      if (product) {
+         console.log("es solo producto");   
+         if(checked) { // add
+            dispatch({
+               type: 'add-product',
+               payload: {
+                  order: id,
+                  product: product
+               }
+            })
+         } else { // remove
+            dispatch({
+               type: 'remove-product',
+               payload: {
+                  order: id,
+                  product: product
+               }
+            })
+         } 
+      } else {
+         if(checked) { // add
+            dispatch({
+               type: 'add-products',
+               payload: {
+                  order: id,
+                  products: match!.products
+               }
+            })
+         } else { // remove
+            dispatch({
+               type: 'remove-products',
+               payload: {
+                  order: id,
+                  products: match!.products
+               }
+            })
+         }
+         console.log("todos los productos");
+      }
+      
+
+  }  
+
    return(
        <FalseDeliveryContext.Provider value={{
             ...state,
             dataApi,
             changeStep,
+            onChangeRadioHeader,
        }}>
            { children }
        </FalseDeliveryContext.Provider>

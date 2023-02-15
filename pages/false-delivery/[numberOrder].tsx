@@ -1,13 +1,14 @@
 import React from 'react';
 import { Layout } from '@/components/layouts';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { FormCase, DataFalseDelivery } from '@/interfaces';
+import { FormCase, DataFalseDeliveryId } from '@/interfaces';
 import { FalseDeliveryProvider } from '@/context/false-delivery';
 import { FalseDelivery } from '@/components/false-delivery';
+import { apiFake } from '@/api/false-delivery';
 
 interface Props {
     typeForm: FormCase;
-    dataContract: DataFalseDelivery[];
+    dataContract: DataFalseDeliveryId[];
 }
 
 const FalseDeliveryHome = ({ typeForm, dataContract }: Props) => {
@@ -36,49 +37,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { numberOrder } = params as { numberOrder: string };
 
     // llamado api y verificar los llamados a apis
-    const apiFake: DataFalseDelivery[] = [ // ejemplo respuesta api
-        {
-            "subOrder": "wena",
-            "sellerName": "Falabella",
-            "products": [
-                {
-                    "image": "http://asdasdasd.com",
-                    "name": "lavadora",
-                    "formatedPrice": "$300.000",
-                    "brand": "samsung",
-                    "quantity": 3,
-                    "enabled": true            
-                },
-                {
-                    "image": "http://asdasdasd.com",
-                    "name": "MAC",
-                    "formatedPrice": "$300.000",
-                    "brand": "samsung",
-                    "quantity": 3,
-                    "enabled": true            
-                }
-            ]
-        },
-        {
-            "subOrder": "wena",
-            "sellerName": "Falabella",
-            "products": [
-                {
-                    "image": "http://asdasdasd.com",
-                    "name": "lavadora",
-                    "formatedPrice": "$300.000",
-                    "brand": "samsung",
-                    "quantity": 3,
-                    "enabled": true            
-                }
-            ]
-        }
-    ]
+    
 
     return {
         props: {
             typeForm: { type: 'FCOM-false-delevery', value: 'Falsa Entrega' },
-            dataContract: apiFake
+            dataContract: apiFake()
         },
         revalidate: 60 // segundos para recargar la informacion.
     }
