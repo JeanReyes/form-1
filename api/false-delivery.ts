@@ -18,7 +18,7 @@ export const dataFake = [ // ejemplo respuesta api
                 "name": "MAC",
                 "formatedPrice": "$300.000",
                 "brand": "samsung",
-                "quantity": 1,
+                "quantity": 5,
                 "enabled": true            
             }
         ]
@@ -32,7 +32,7 @@ export const dataFake = [ // ejemplo respuesta api
                 "name": "lavadora",
                 "formatedPrice": "$300.000",
                 "brand": "samsung",
-                "quantity": 3,
+                "quantity": 1,
                 "enabled": true            
             }
         ]
@@ -51,17 +51,17 @@ export const dataFake = [ // ejemplo respuesta api
             },
             {
                 "image": "http://asdasdasd.com",
-                "name": "lavadora",
+                "name": "PLA 5",
                 "formatedPrice": "$300.000",
                 "brand": "samsung",
-                "quantity": 3,
-                "enabled": false           
+                "quantity": 10,
+                "enabled": true           
             },{
                 "image": "http://asdasdasd.com",
                 "name": "lavadora",
                 "formatedPrice": "$300.000",
                 "brand": "samsung",
-                "quantity": 3,
+                "quantity": 1,
                 "enabled": true            
             }
         ]

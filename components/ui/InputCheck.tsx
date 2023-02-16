@@ -38,16 +38,14 @@ export const InputCheck = ({ name, product, header, disable }: Props) => {
         
     }, [selectProducts])
     
-
     const handleChange = ( e: React.ChangeEvent<HTMLInputElement>) =>{
         onChangeRadioHeader(e.target.name, e.target.checked, header!, product);
     }
 
-
     return (
         //checked={true} 
         <div>
-            <input type="checkbox" id={ name } disabled={ disable } checked={ isChecked } name={ name } onChange={ (e) => handleChange(e) }/>
+            <input type="checkbox" className={ disable ? 'input-bloqued' : ''} id={ name } disabled={ disable } checked={ isChecked } name={ name } onChange={ (e) => handleChange(e) }/>
             <label htmlFor={name} ></label>
             <style jsx>{ check }</style>
         </div>

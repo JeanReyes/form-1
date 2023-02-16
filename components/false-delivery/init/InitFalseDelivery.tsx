@@ -20,7 +20,7 @@ export const InitFalseDelivery = ({ orders }: Props) => {
                     <Order key={ index } id={ order.id } order={ order }/>
                 ))
             }
-            <button onClick={() => changeStep('medium')}>seguiente</button>
+            <button onClick={() => changeStep('medium')}>siguiente</button>
             <style jsx>{initStyle}</style>
         </>
     )

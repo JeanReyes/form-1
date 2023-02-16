@@ -17,22 +17,29 @@ const check = css`
     }
     label:before{
         position: absolute;
-        border-radius: 1px;
+        border-radius: 0.5px;
         content: '';
         right: 0px;
         bottom: 0px;
-        padding-top: 3px;
-        height: 21px;
-        width: 24px;
+        /* padding-tosp: 3px; */
+        height: 20px;
+        width: 20px;
         outline: 1px solid #BFC4C9;
-        border: 2px solid #fff;
+        border: 1px solid #fff;
         transition: .3s;
     }
     input:checked + label:before {
-        content: ':)';
-        outline: 1px solid #FF6200;
+        content: url('https://storage.googleapis.com/dev-corp-cust-mycases-front/images/Check.svg');
+        outline: 1.5px solid #FF6200;
         display: flex;
-        padding-top: 3px;
+        /* padding-top: 3px; */
+    }
+
+    .input-bloqued + label:before {
+        content: url('https://storage.googleapis.com/dev-corp-cust-mycases-front/images/Line.svg');
+        outline: 1.5px solid #BFC4C9;
+        display: flex;
+        /* paddking-top: 3px; */
     }
 `
 

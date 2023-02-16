@@ -7,6 +7,8 @@ export type ActionStep = { type: 'upd-step', payload: TypeStep }
 | { type: 'remove-products', payload: { order: string, products: ProductFalseDeliveryId[] } }
 | { type: 'add-product', payload: { order: string, product: ProductFalseDeliveryId } }
 | { type: 'remove-product', payload: { order: string, header: string, product: ProductFalseDeliveryId } }
+| { type: 'upd-quantity', payload: { quantity: number, name: string }}
+| { type: 'uncheck-product', payload: { name: string, header: string }}
 
 export const falseDeliveryReducer = (state: FalseDeliveryState, action: ActionStep): FalseDeliveryState => {
     switch(action.type) {
@@ -38,6 +40,25 @@ export const falseDeliveryReducer = (state: FalseDeliveryState, action: ActionSt
                 allOrder: state.allOrder.filter(header => header !== action.payload.header),
                 selectProducts: state.selectProducts.filter((product) => { if (action.payload.product.id !== product.id) return product })
             }
+        case 'upd-quantity':
+            const newQuantity = state.selectProducts.filter((product) => {
+                if (product.id === action.payload.name) {
+                    product.quantity = action.payload.quantity;
+                }
+                return product
+            });
+
+            return {
+                ...state,
+                selectProducts: newQuantity
+            }
+        case 'uncheck-product': {
+            return {
+                ...state,
+                allOrder: state.allOrder.filter(header => header !== action.payload.header),
+                selectProducts: state.selectProducts.filter((product) => { if (action.payload.name !== product.id) return product })
+            }
+        }
     
         default: return state;
     }

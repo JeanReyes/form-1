@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { ProductFalseDeliveryId } from '@/interfaces';
-import { FalseDeliveryContext } from '@/context/false-delivery';
-import { Product } from '@/components/ui/Product';
+import { Product } from '@/components/ui';
 
 interface Props {
     header: string;
@@ -17,7 +16,7 @@ export const ListProducts = ({ products, header }: Props) => {
                     <Product header={ header } key={index} product={ product } />
                 ))
             }
-            <br/><br/>
+            <br/><br/><br/><br/>
         </>
     )
 }
