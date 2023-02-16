@@ -29,7 +29,7 @@ export const QuantityProducts = ({ quantity, name, header, onQuantityProduct, on
 
     useEffect(() => {
         onQuantityProduct(quantityProduct, name);
-        if(quantityProduct === 1) onChangeRadioOneProduct(name, header); // enviar el header padre del product
+        if(quantityProduct === 0) onChangeRadioOneProduct(name, header); // enviar el header padre del product
     }, [quantityProduct])
 
     //TODO: cuando la catindad llegue a 1 desmarcar check
