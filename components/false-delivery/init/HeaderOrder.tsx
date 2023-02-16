@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface Props {
-    seller: string,
-    subOrder: string
+    seller: string;
+    subOrder: string;
 }
 
 export const HeaderOrder = ({ seller, subOrder }: Props) => {

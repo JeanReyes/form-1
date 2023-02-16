@@ -66,7 +66,7 @@ export const dataFake = [ // ejemplo respuesta api
             }
         ]
     }
-]
+];
 
 
 export const apiFake = () => {
@@ -80,7 +80,7 @@ export const apiFake = () => {
                 ...product
             })),
         }
-    })
+    });
 }
 
 

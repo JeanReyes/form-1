@@ -25,8 +25,11 @@ export const MediumFalseDelivery = () => {
             <br/><br/>
             {
                 productSelectByOrder?.map((products, index) => (
-                    // llamar a card de sgunda vista
-                    <div key={index}>{ JSON.stringify(products) }<br/><br/></div>
+                    // llamar a card de segunda vista
+                    <div key={index}>
+                        { JSON.stringify(products) }
+                        <br/><br/>
+                    </div>
                 ))
             }
         </>

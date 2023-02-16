@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
-import { initStyle } from './InitFalseDelivery.style';
-import { Order } from './Order';
 import { DataFalseDeliveryId } from '@/interfaces';
 import { FalseDeliveryContext } from '@/context/false-delivery';
+import { Order } from './Order';
+import { initStyle } from './InitFalseDelivery.style';
 
 interface Props {
-    orders: DataFalseDeliveryId []
+    orders: DataFalseDeliveryId [];
 }
 
 export const InitFalseDelivery = ({ orders }: Props) => {
 
-    const { changeStep, selectProducts } = useContext(FalseDeliveryContext);
+    const { changeStep } = useContext(FalseDeliveryContext);
 
 
     return (
@@ -20,14 +20,7 @@ export const InitFalseDelivery = ({ orders }: Props) => {
                     <Order key={ index } id={ order.id } order={ order }/>
                 ))
             }
-                <button onClick={() => changeStep('medium')}>seguiente</button>
-
-            {
-                selectProducts?.map((arr, index) => (
-                    <div key={index}> {JSON.stringify(arr)} <br/> <br/></div>
-                ))
-            }
-        
+            <button onClick={() => changeStep('medium')}>seguiente</button>
             <style jsx>{initStyle}</style>
         </>
     )

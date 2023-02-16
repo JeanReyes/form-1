@@ -1,5 +1,5 @@
-import { FalseDeliveryContext, TypeStep } from '@/context/false-delivery';
 import React, { useContext, useEffect } from 'react';
+import { FalseDeliveryContext, TypeStep } from '@/context/false-delivery';
 import { FinishFalseDelivery, InitFalseDelivery, MediumFalseDelivery } from './';
 
 
@@ -14,7 +14,7 @@ export const FalseDelivery = () => {
     // manejo de statos de step
     useEffect(() => {
         if(dataApi.length === 1) {
-            // changeStep('medium');
+            changeStep('medium');
         }     
     }, [])
     

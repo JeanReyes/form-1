@@ -19,7 +19,6 @@ export const falseDeliveryReducer = (state: FalseDeliveryState, action: ActionSt
             return {
                 ...state,
                 allOrder: [ ...state.allOrder, action.payload.order ],
-                // selectProducts: [ ...state.selectProducts, ...action.payload.products.filter((prod) => { if (!state.selectProducts.includes(prod) ) return prod  })]
                 selectProducts: [ ...state.selectProducts, ...action.payload.products.filter((prod) => { if (!state.selectProducts.includes(prod) && prod.enabled) return prod })]
             }
         case 'remove-products': 
@@ -31,7 +30,7 @@ export const falseDeliveryReducer = (state: FalseDeliveryState, action: ActionSt
         case 'add-product':
             return {
                 ...state,
-                selectProducts: [...state.selectProducts, action.payload.product] //state.selectProducts.filter((prod) => { if (prod.id !== action.payload.product.id) return prod  }) 
+                selectProducts: [...state.selectProducts, action.payload.product]
             }
         case 'remove-product': 
             return {

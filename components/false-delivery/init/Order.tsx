@@ -1,9 +1,9 @@
-import React from 'react'
-import { HeaderOrder } from './HeaderOrder'
-import { DataFalseDeliveryId } from '@/interfaces'
-import { InputCheck } from '@/components/ui'
-import { initStyle } from './InitFalseDelivery.style'
-import { ListProducts } from './ListProducts'
+import React from 'react';
+import { HeaderOrder } from './HeaderOrder';
+import { DataFalseDeliveryId } from '@/interfaces';
+import { InputCheck } from '@/components/ui';
+import { ListProducts } from './ListProducts';
+import { initStyle } from './InitFalseDelivery.style';
 
 /** COMPONENTS
  * Order
@@ -14,7 +14,7 @@ import { ListProducts } from './ListProducts'
  */
 interface Props {
     id: string;
-    order: DataFalseDeliveryId
+    order: DataFalseDeliveryId;
 }
 
 export const Order = ({ order }: Props) => {
@@ -24,13 +24,13 @@ export const Order = ({ order }: Props) => {
     return (
         <div>
             <div className="aling-div">  
-                { products.length > 1 && <InputCheck disable={ false } value='header' name={ id } header={ id } /> }
+                { products.length > 1 && <InputCheck disable={ false } name={ id } header={ id } /> }
                 <HeaderOrder seller={ sellerName } subOrder={ subOrder }/>
             </div>
             <div>
                 <ListProducts header={ id } products={ products }/>
             </div>
-            <style jsx>{initStyle}</style>
+            <style jsx>{ initStyle }</style>
         </div>
     )
 }
